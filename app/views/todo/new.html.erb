@@ -1,0 +1,11 @@
+<h1>Add new item to your to-do list</h1>
+<%= form_for @todo, :url => todo_index_path(@todo) do |f| %>
+    <%= f.hidden_field :done, :value => false %>
+    <div class="form-group">
+      <p><%= f.label :name %></p>
+      <p><%= f.text_field :name, :class => "form-control", :placeholder => "My to-do item" %></p>
+    </div>
+    <div class="form-group">
+        <%= f.submit "Add to-do element", :class => "btn btn-primary" %>
+    </div>
+<% end %>

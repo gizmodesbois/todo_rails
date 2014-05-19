@@ -1,0 +1,33 @@
+<h1>Todos items</h1>
+<h2>To do</h2>
+<% if @todos.blank? %>
+    <p>You have no to-do for the moment</p>
+<% else %>
+    <ul>
+        <% @todos.each do |t| %>
+            <li>
+                <p><%= t.name%></p>
+                <small><%= link_to "Mark as done", todo_path(t), :method => :put %></small>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<h2>Done</h2>
+<% if @todone.blank? %>
+    <p>You have no to-done for the moment</p>
+<% else %>
+    <ul>
+        <% @todone.each do |t| %>
+            <li>
+                <p><%= t.name%></p>
+                <small><%= link_to "Remove", t, :confirm => "Is it ok to remove this item ?",:method => :delete %></small>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
+
+
+<p>
+    <%= link_to "Add new todo", new_todo_path %>
+</p>
