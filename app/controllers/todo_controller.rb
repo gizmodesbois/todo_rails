@@ -5,12 +5,16 @@ class TodoController < ApplicationController
         @todone = Todo.where(done:true)
     end
 
+    def show
+        @todo = Todo.find(params[:id])
+    end
+
     def new
         @todo = Todo.new
     end
 
     def todo_params
-        params.require(:todo).permit(:name, :done)
+        params.require(:todo).permit(:name,:description, :done)
     end
 
     def create

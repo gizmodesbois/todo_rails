@@ -1,4 +1,9 @@
-<h1>Todos items</h1>
+<div class="row">
+    <h1 class="col-xs-10 col-md-10 main-title">Todos items</h1>
+    <p class="col-xs-2 col-md-2">
+        <%= link_to "Add new todo", new_todo_path, :class => "btn btn-primary btn-block" %>
+    </p>
+</div>
 <h2>To do</h2>
 <% if @todos.blank? %>
     <p>You have no to-do for the moment</p>
@@ -6,7 +11,7 @@
     <ul>
         <% @todos.each do |t| %>
             <li>
-                <p><%= t.name%></p>
+                <%= link_to t.name, todo_path(t.id) %>
                 <small><%= link_to "Mark as done", todo_path(t), :method => :put %></small>
             </li>
         <% end %>
@@ -20,14 +25,9 @@
     <ul>
         <% @todone.each do |t| %>
             <li>
-                <p><%= t.name%></p>
+                <%= link_to t.name, todo_path(t.id) %>
                 <small><%= link_to "Remove", t, :confirm => "Is it ok to remove this item ?",:method => :delete %></small>
             </li>
         <% end %>
     </ul>
 <% end %>
-
-
-<p>
-    <%= link_to "Add new todo", new_todo_path %>
-</p>
