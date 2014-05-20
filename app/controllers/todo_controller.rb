@@ -21,7 +21,7 @@ class TodoController < ApplicationController
         @todo = Todo.new(todo_params)
 
         if @todo.save
-            redirect_to todo_index_path, :success => 'Your todo has been created with success!'
+            redirect_to todo_index_path, success: 'Your todo has been created with success!'
         else
             render "new"
         end
@@ -31,9 +31,9 @@ class TodoController < ApplicationController
         @todo = Todo.find(params[:id])
 
         if @todo.update_attribute(:done, true)
-            redirect_to todo_index_path, :notice => 'Your todo has been set to done'
+            redirect_to todo_index_path, notice: 'Your todo has been set to done'
         else
-            redirect_to todo_index_path, :notice => 'Your todo has not been marked has done'
+            redirect_to todo_index_path, notice: 'Your todo has not been marked has done'
         end
     end
 
@@ -41,7 +41,7 @@ class TodoController < ApplicationController
         @todo = Todo.find(params[:id])
         @todo.destroy
 
-        redirect_to todo_index_path, :notice => 'Your todo has been removed with success!'
+        redirect_to todo_index_path, notice: 'Your todo has been removed with success!'
     end
 
 end

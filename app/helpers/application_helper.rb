@@ -1,5 +1,5 @@
 module ApplicationHelper
-    def bootstrap_class_for flash_type
+    def bootstrap_class_for(flash_type)
           { success: 'alert-success',
             error: 'alert-error',
             alert: 'alert-block',
@@ -14,7 +14,6 @@ module ApplicationHelper
             concat message
         end)
         end
-        nil
     end
 
 end
